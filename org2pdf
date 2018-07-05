@@ -1,0 +1,9 @@
+#!/bin/sh
+
+emacs -Q --batch \
+    --eval "(require 'org)" \
+    --eval "(require 'ox-latex)" \
+    --eval "(setq org-latex-listings 'minted)" \
+    --eval "(setq org-confirm-babel-evaluate nil)" \
+    --visit="$1" \
+    --funcall org-latex-export-to-pdf
