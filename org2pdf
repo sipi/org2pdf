@@ -1,9 +1,13 @@
 #!/bin/sh
 
+plantuml_jar_file="/opt/plantuml.jar"
+
 emacs -Q --batch \
     --eval "(require 'org)" \
     --eval "(require 'ox-latex)" \
     --eval "(setq org-latex-listings 'minted)" \
     --eval "(setq org-confirm-babel-evaluate nil)" \
+    --eval "(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))" \
+    --eval "(setq org-plantuml-jar-path (expand-file-name \"${plantuml_jar_file}\"))" \
     --visit="$1" \
     --funcall org-latex-export-to-pdf
