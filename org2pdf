@@ -5,6 +5,7 @@ plantuml_jar_file="/opt/plantuml.jar"
 emacs -Q --batch \
     --eval "(require 'org)" \
     --eval "(require 'ox-latex)" \
+    --eval '(setq org-latex-pdf-process (quote ("lualatex --draftmode --interaction=nonstopmode --output-directory=%o %f" "lualatex --draftmode --interaction=nonstopmode --output-directory=%o %f" "lualatex --interaction=nonstopmode --output-directory=%o %f")))' \
     --eval "(setq org-latex-listings 'minted)" \
     --eval "(setq org-confirm-babel-evaluate nil)" \
     --eval "(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))" \
